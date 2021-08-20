@@ -1,6 +1,6 @@
 # Learning C in College (AED2 @ UFG) ✨
 
-> This repo is only to remind the future me what I'm currently learning
+> This repo is only meant to expose what I'm currently learning
 
 ## Trees
 

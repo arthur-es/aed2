@@ -2,13 +2,24 @@
 
 > This repo is only meant to expose what I'm currently learning
 
+# What I've learned so far:
+
 ## Trees
 
-- How to insert data in a tree
-- How to print data from a tree
+- How to insert data in a tree (v1)
+- How to print data from a tree (v1)
   - In-order
   - Pre-order
   - Pos-order
+- A better way to insert data in a tree (v2)
+- How to get the size of the tree (v3)
+- How to search for a value in a tree (v4)
+- How to delete an item from a tree (TBD)
+  -  How to delete a leaf (node that has no children)
+  -  How to delete a middle node (that has only one child)
+  -  How to delete a node with two children
+
+
 
 ### Useful commands:
 

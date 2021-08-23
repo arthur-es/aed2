@@ -161,7 +161,7 @@ Node* deleteNode(Node *root, int key){
                 return NULL;
             } else {
                 // Removes nodes that has only 1 child
-                if(root->left != NULL || root->right != NULL){
+                if(root->left == NULL || root->right == NULL){
                     Node *temporatyNode;
                     if(root->left != NULL){
                         temporatyNode = root->left;
@@ -170,6 +170,16 @@ Node* deleteNode(Node *root, int key){
                     }
                     free(root);
                     return temporatyNode;
+                } else {
+                    Node *temporaryNode = root->left;
+                    while(temporaryNode->right != NULL){
+                        temporaryNode = temporaryNode->right;
+                    }
+
+                    root->value = temporaryNode->value;
+                    temporaryNode->value = key;
+                    root->left = deleteNode(root->left, key);
+                    return root;
                 }
             }
         } else {

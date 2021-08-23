@@ -155,9 +155,22 @@ Node* deleteNode(Node *root, int key){
         return NULL;
     } else {
         if(root->value == key){
+            // Removes leaf nodes (nodes that has no children)
             if(root->left == NULL && root->right == NULL){
                 free(root);
                 return NULL;
+            } else {
+                // Removes nodes that has only 1 child
+                if(root->left != NULL || root->right != NULL){
+                    Node *temporatyNode;
+                    if(root->left != NULL){
+                        temporatyNode = root->left;
+                    } else {
+                        temporatyNode = root->right;
+                    }
+                    free(root);
+                    return temporatyNode;
+                }
             }
         } else {
             if(key < root->value){

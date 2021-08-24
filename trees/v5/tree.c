@@ -14,7 +14,7 @@ void printInOrderTree(Node *root);
 void printPreOrderTree(Node *root);
 int getTreeSize(Node *root);
 int searchInTree(Node *root, int key);
-Node* deleteNode(Node *root, int key);
+Node* delete(Node *root, int key);
 
 int main () {
     int option, value;
@@ -64,7 +64,7 @@ int main () {
         case 7:
             printf("Qual valor voce quer remover da arvore?: ");
             scanf("%d", &valueToDelete);
-            deleteNode(root, valueToDelete);
+            delete(root, valueToDelete);
             break;
         default:
             printf("\nOpcao invalida!...");
@@ -149,7 +149,7 @@ int searchInTree(Node *root, int key){
     }
 }
 
-Node* deleteNode(Node *root, int key){
+Node* delete(Node *root, int key){
     if(root == NULL){
         printf("Valor nao encontrado!\n");
         return NULL;
@@ -178,15 +178,15 @@ Node* deleteNode(Node *root, int key){
 
                     root->value = temporaryNode->value;
                     temporaryNode->value = key;
-                    root->left = deleteNode(root->left, key);
+                    root->left = delete(root->left, key);
                     return root;
                 }
             }
         } else {
             if(key < root->value){
-                root->left = deleteNode(root->left, key);
+                root->left = delete(root->left, key);
             } else {
-                root->right = deleteNode(root->right, key);
+                root->right = delete(root->right, key);
             }
             return root;
         }

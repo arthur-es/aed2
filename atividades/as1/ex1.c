@@ -16,7 +16,7 @@ int isEven(int value);
 int main () {
     Node *root = NULL;
 
-    int i, count;
+    int i;
     int valuesToInsert[] = { 105,55,60,110,301,200 };
     int sizeOfArray = sizeof(valuesToInsert) / sizeof(int);
 

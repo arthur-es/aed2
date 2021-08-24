@@ -8,9 +8,8 @@ typedef struct node {
 } Node;
 
 Node* insert(Node *root, int valueToInsert);
-
+int findMax(Node* root);
 void printInOrderTree(Node *root);
-int getLeafCount(Node *root);
 
 int main () {
     Node *root = NULL;
@@ -29,9 +28,25 @@ int main () {
     printf("Valores inseridos na arvore: ");
     printInOrderTree(root);
 
-    printf("\n\nQuantidade de nos-folha existentes na arvore: %d\n", getLeafCount(root));
+    printf("\n\nMaior valor encontrado na arvore: %d\n", findMax(root));
 
     return 0;
+}
+
+int findMax(Node* root)
+{
+    if (root == NULL){
+        return -999999999; // set lowest possible value
+    }
+ 
+    int res = root->value;
+    int lres = findMax(root->left);
+    int rres = findMax(root->right);
+    if (lres > res)
+        res = lres;
+    if (rres > res)
+        res = rres;
+    return res;
 }
 
 
@@ -64,13 +79,8 @@ void printInOrderTree(Node *root){
     printInOrderTree(root->right);
 }
 
-int getLeafCount(Node *root)
-{
-    if(root == NULL)    
-        return 0;
-    if(root->left == NULL && root->right == NULL)
-        return 1;        
-    else
-        return getLeafCount(root->left)+
-            getLeafCount(root->right);
-}
+
+
+
+
+
